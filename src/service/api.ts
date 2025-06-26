@@ -35,12 +35,13 @@ export const fetchUserById = async (id: string) => {
   if (!res.ok) throw new Error('Failed to fetch user');
   return res.json();
 };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const updateUser = async (obj: any) => {
   const { id, data } = obj;
   const res = await axios.put(`http://localhost:5000/api/users/updateuser/${id}`, data);
   return res.data; 
 };
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const login = async (data: any) => {
   console.log(data,4);
   

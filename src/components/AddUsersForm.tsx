@@ -23,8 +23,7 @@ const AddUsersForm = () => {
   });
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
-  console.log(token, role);
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (data: any) => {
     mutate(data, {
       onSuccess: () => reset(),
@@ -48,7 +47,7 @@ const AddUsersForm = () => {
           )}
         </div>
         <div>
-          <label>Father's Name:</label>
+          <label>Father&apos;s Name:</label>
           <input
             {...register("fatherName")}
             className="border border-gray-300 p-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"

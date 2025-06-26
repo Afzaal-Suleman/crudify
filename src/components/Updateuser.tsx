@@ -37,8 +37,9 @@ const Updateuser = () => {
   } = useForm<UserFormData>({
     resolver: zodResolver(userSchema),
   });
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (data: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const obj: any = {
       data: data,
       id: id,
@@ -83,7 +84,7 @@ const Updateuser = () => {
           )}
         </div>
         <div>
-          <label>Father's Name:</label>
+          <label>Father&apos;s Name:</label>
           <input
             {...register("fatherName")}
             // defaultValue={data?.users?.fatherName}
