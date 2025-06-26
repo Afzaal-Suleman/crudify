@@ -10,7 +10,7 @@ import { z } from "zod";
 type UserFormData = z.infer<typeof userSchema>;
 
 const AddUsersForm = () => {
-  const { mutate, isError, error, isSuccess } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: adduser,
   });
   const {
@@ -26,16 +26,11 @@ const AddUsersForm = () => {
   console.log(token, role);
 
   const onSubmit = (data: any) => {
-    mutate(
-      data
-      //   {
-      //   onSuccess: () => reset(),
-      // }
-    );
+    mutate(data, {
+      onSuccess: () => reset(),
+    });
   };
-  // if (isSuccess) {
-  //   return <p>done</p>;
-  // }
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}

@@ -19,22 +19,13 @@ const Updateuser = () => {
   const params = useParams();
   const id = params.id as string;
 
-  const {
-    data,
-    isLoading,
-    isError: er,
-  } = useQuery({
+  const { data } = useQuery({
     queryKey: ["users", id],
     queryFn: () => fetchUserById(id),
     enabled: !!id,
   });
 
-  const {
-    mutate,
-    isError: err2,
-    error,
-    isSuccess,
-  } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: updateUser,
   });
 

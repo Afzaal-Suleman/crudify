@@ -19,7 +19,7 @@ const Login = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
 
-  const { data, mutate, isError, error, isSuccess } = useMutation({
+  const { data, mutate } = useMutation({
     mutationFn: login,
   });
   if (data) {
