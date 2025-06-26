@@ -21,8 +21,7 @@ const AddUsersForm = () => {
   } = useForm<UserFormData>({
     resolver: zodResolver(userSchema),
   });
-  const token = localStorage.getItem("token");
-  const role = localStorage.getItem("role");
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (data: any) => {
     mutate(data, {
