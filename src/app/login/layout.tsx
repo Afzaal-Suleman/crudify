@@ -1,11 +1,14 @@
 "use client";
-import { redirect } from "next/navigation";
-
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 const Loginlayout = ({ children }: { children: React.ReactNode }) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    redirect("/");
-  }
+  const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.replace("/");
+    }
+  }, []);
   return <div>{children}</div>;
 };
 

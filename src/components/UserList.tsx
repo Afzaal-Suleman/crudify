@@ -4,7 +4,7 @@ import { Data } from "@/types/userData";
 import { fetchUsers } from "@/service/api";
 import { deleteUser } from "@/service/api";
 import { useRouter } from "next/navigation";
-
+import { useState, useEffect } from "react";
 export default function UserList() {
   const queryClient = useQueryClient();
   const router = useRouter();
@@ -13,7 +13,13 @@ export default function UserList() {
     queryKey: ["users"],
     queryFn: fetchUsers,
   });
-  const role = localStorage.getItem("role");
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role");
+
+    setRole(storedRole);
+  }, []);
   const deleteMutation = useMutation({
     mutationFn: deleteUser,
     onSuccess: () => {
